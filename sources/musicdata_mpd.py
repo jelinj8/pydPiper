@@ -184,6 +184,8 @@ class musicdata_mpd(musicdata.musicdata):
 		bitdepth = u""
 		samplerate = u""
 		chnum = 0
+                bits = 0
+                sample = 0
 
 		if self.musicdata[u'encoding']:
 			tracktype = self.musicdata[u'encoding']
@@ -214,6 +216,10 @@ class musicdata_mpd(musicdata.musicdata):
 		self.musicdata[u'bitdepth'] = bitdepth
 		self.musicdata[u'samplerate'] = samplerate
 		self.musicdata[u'channels'] = chnum
+                self.musicdata[u'bits'] = bits
+                self.musicdata[u'chann'] = chnum
+                self.musicdata[u'sample'] = sample
+                self.musicdata[u'kbps'] = u"{0}".format(status[u'bitrate']) if u'bitrate' in status else u""
 
 		# if duration is not available, then suppress its display
 		if int(self.musicdata[u'length']) > 0:
