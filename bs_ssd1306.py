@@ -30,29 +30,29 @@ IMAGES = {
 
 # Load the Widgets that will be used to produce the display pages
 WIDGETS = {
-        'songprogress': { 'type':'progressbar', 'value':'elapsed', 'rangeval':(0,'length'), 'size':(128,2) },
-        'xofy': { 'type':'text', 'format':'{0}/{1}', 'variables':['playlist_position', 'playlist_length'], 'font':'small', 'size':(64,8), 'just':'center', 'varwidth':True },
-        'volume': { 'type':'text', 'format':'Volume: {0}', 'variables':['volume'], 'font':'small', 'just':'right', 'size':(64,8), 'varwidth':True },
+	'songprogress': { 'type':'progressbar', 'value':'elapsed', 'rangeval':(0,'length'), 'size':(128,2) },
+	'xofy': { 'type':'text', 'format':'{0}/{1}', 'variables':['playlist_position', 'playlist_length'], 'font':'small', 'size':(64,8), 'just':'center', 'varwidth':True },
+	'volume': { 'type':'text', 'format':'Volume: {0}', 'variables':['volume'], 'font':'small', 'just':'right', 'size':(64,8), 'varwidth':True },
 
-        #'encoding': { 'type':'text', 'format':'{0}', 'variables':['encoding'], 'font':'small', 'just':'right', 'size':(60,16), 'varwidth':True },
-        'tracktype': { 'type':'text', 'format':'{0}kHz {1}b {3}ch {2}kbps', 'variables':['sample','bits','kbps','channels'], 'font':'small', 'just':'center', 'size':(128,8), 'varwidth':True },
+	#'encoding': { 'type':'text', 'format':'{0}', 'variables':['encoding'], 'font':'small', 'just':'right', 'size':(60,16), 'varwidth':True },
+	'tracktype': { 'type':'text', 'format':'{0}kHz {1}b {3}ch {2}kbps', 'variables':['sample','bits','kbps','channels'], 'font':'small', 'just':'center', 'size':(128,8), 'varwidth':True },
 
-        'volumelarge': { 'type':'ttext', 'format':'{0}', 'variables':['volume'], 'font':'DejaVuSans50', 'just':'center', 'varwidth':True, 'size':(128,40) },
+	'volumelarge': { 'type':'ttext', 'format':'{0}', 'variables':['volume'], 'font':'DejaVuSans50', 'just':'center', 'varwidth':True, 'size':(128,40) },
 	'volumebar': { 'type':'progressbar', 'value':'volume', 'rangeval':(0,100), 'size':(128,8) },
-        'title': { 'type':'text', 'format':'{0}', 'variables':['title'], 'font':'large','varwidth':True,'effect':('scroll','left',1,1,20,'onloop',3,128), 'size':(128,16), 'just':'center'},
+	'title': { 'type':'text', 'format':'{0}', 'variables':['title'], 'font':'large','varwidth':True,'effect':('scroll','left',1,1,20,'onloop',3,128), 'size':(128,16), 'just':'center'},
 	'artist': { 'type':'text', 'format':'{0}', 'variables':['artist'], 'font':'small','varwidth':True,'effect':('scroll','left',1,1,20,'onloop',3,128), 'size':(128,16), 'just':'center'},
 
 	'elapsed': { 'type':'text', 'format':'{0}', 'variables':['elapsed|strftime+%-M:%S'], 'font':'small','size':(30,8), 'varwidth':True},
 	'length': { 'type':'text', 'format':'{0}', 'variables':['length|strftime+%-M:%S'], 'font':'small','size':(30,8),'just':'right','varwidth':True},
-        'stime': { 'type':'text', 'format':'{0}', 'variables':['utc|timezone+Europe/Prague|strftime+%H:%M'], 'font':'small', 'just':'right', 'varwidth':True, 'size':(60,16) },
+	'stime': { 'type':'text', 'format':'{0}', 'variables':['utc|timezone+Europe/Prague|strftime+%H:%M'], 'font':'small', 'just':'right', 'varwidth':True, 'size':(60,16) },
 	'time': { 'type':'text', 'format':'{0}', 'variables':['utc|timezone+Europe/Prague|strftime+%H:%M'], 'font':'large', 'just':'center', 'varwidth':True, 'size':(128,16) },
-        'ttime': { 'type':'ttext', 'format':'{0}', 'variables':['utc|timezone+Europe/Prague|strftime+%H:%M'], 'font':'DejaVuSans45', 'just':'center', 'varwidth':True, 'size':(128,64) },
+	'ttime': { 'type':'ttext', 'format':'{0}', 'variables':['utc|timezone+Europe/Prague|strftime+%H:%M'], 'font':'DejaVuSans45', 'just':'center', 'varwidth':True, 'size':(128,64) },
 	'tempsmall': { 'type':'text', 'format':'{0}', 'variables':['outside_temp_formatted'], 'font':'small', 'just':'right', 'size':(24,16) },
 	'temphilow': { 'type':'text', 'format':'H {0}\nL {1}', 'variables':['outside_temp_max|int', 'outside_temp_min|int'], 'font':'small', 'just':'right', 'size':(25,16) },
 	'temp': { 'type':'text', 'format':'{0}', 'variables':['outside_temp_formatted'], 'font':'large', 'just':'center', 'size':(80,16) },
 	'weather': { 'type':'text', 'format':'{0}', 'variables':['outside_conditions|capitalize'], 'font':'large','varwidth':True, 'effect':('scroll','left',1,1,20,'onloop',3,100)},
 
-        'splash': { 'type':'ttext', 'format':'MoOde', 'font':'DejaVuSans35', 'just':'center', 'varwidth':True, 'size':(128,64) },
+	'splash': { 'type':'ttext', 'format':'MoOde', 'font':'DejaVuSans35', 'just':'center', 'varwidth':True, 'size':(128,64) },
 }
 
 # Assemble the widgets into canvases.  Only needed if you need to combine multiple widgets together so you can produce effects on them as a group.
