@@ -30,8 +30,8 @@ IMAGES = {
 
 # Load the Widgets that will be used to produce the display pages
 WIDGETS = {
-	'songprogress': { 'type':'progressbar', 'value':'elapsed', 'rangeval':(0,'length'), 'size':(128,2) },
-	'xofy': { 'type':'text', 'format':'{0}/{1}', 'variables':['playlist_position', 'playlist_length'], 'font':'small', 'size':(64,8), 'just':'center', 'varwidth':True },
+	'songprogress': { 'type':'progressbar', 'value':'elapsed', 'rangeval':(0,'length'), 'size':(128,1) },
+	'xofy': { 'type':'text', 'format':'{0}/{1}', 'variables':['playlist_position', 'playlist_length'], 'font':'large', 'size':(64,8), 'just':'center', 'varwidth':True },
 	'volume': { 'type':'text', 'format':'Volume: {0}', 'variables':['volume'], 'font':'small', 'just':'right', 'size':(64,8), 'varwidth':True },
 
 	#'encoding': { 'type':'text', 'format':'{0}', 'variables':['encoding'], 'font':'small', 'just':'right', 'size':(60,16), 'varwidth':True },
@@ -42,8 +42,8 @@ WIDGETS = {
 	'title': { 'type':'text', 'format':'{0}', 'variables':['title'], 'font':'large','varwidth':True,'effect':('scroll','left',1,1,20,'onloop',3,128), 'size':(128,16), 'just':'center'},
 	'artist': { 'type':'text', 'format':'{0}', 'variables':['artist'], 'font':'small','varwidth':True,'effect':('scroll','left',1,1,20,'onloop',3,128), 'size':(128,16), 'just':'center'},
 
-	'elapsed': { 'type':'text', 'format':'{0}', 'variables':['elapsed|strftime+%-M:%S'], 'font':'small','size':(30,8), 'varwidth':True},
-	'length': { 'type':'text', 'format':'{0}', 'variables':['length|strftime+%-M:%S'], 'font':'small','size':(30,8),'just':'right','varwidth':True},
+	'elapsed': { 'type':'text', 'format':'{0}', 'variables':['elapsed|strftime+%-M:%S'], 'font':'large','size':(30,8), 'varwidth':True},
+	'length': { 'type':'text', 'format':'{0}', 'variables':['length|strftime+%-M:%S'], 'font':'large','size':(30,8),'just':'right','varwidth':True},
 	'stime': { 'type':'text', 'format':'{0}', 'variables':['utc|timezone+Europe/Prague|strftime+%H:%M'], 'font':'small', 'just':'right', 'varwidth':True, 'size':(60,16) },
 	'time': { 'type':'text', 'format':'{0}', 'variables':['utc|timezone+Europe/Prague|strftime+%H:%M'], 'font':'large', 'just':'center', 'varwidth':True, 'size':(128,16) },
 	'ttime': { 'type':'ttext', 'format':'{0}', 'variables':['utc|timezone+Europe/Prague|strftime+%H:%M'], 'font':'DejaVuSans45', 'just':'center', 'varwidth':True, 'size':(128,64) },
@@ -60,19 +60,19 @@ CANVASES = {
 	'playing': { 'widgets': [ 
             #('volume',68,0),
             #('stime',69,0),
-            ('title',0,14), # was Y=10
-            ('artist',0,34), # was Y=26
+            ('title',0,13), # was Y=10
+            ('artist',0,33), # was Y=26
             #('bitdepth',0,45), ('samplerate',39,45), ('bitrate',79,45), 
             ('tracktype',0,0),
             
-            ('elapsed',0,50),
-            ('xofy',32,50),
-            ('length',98,50),
-            ('songprogress',0,62),
+            ('elapsed',0,48),
+            ('xofy',32,48),
+            ('length',98,48),
+            ('songprogress',0,63),
         ], 'size':(128,64) },
 
         'stoptime': { 'widgets': [ 
-            ('ttime',0,10) 
+            #('ttime',0,10) 
         ], 'size':(128,64) },
 
         'splashw': { 'widgets': [ 

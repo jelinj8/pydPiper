@@ -1,6 +1,6 @@
 [Unit]
 Description = pydPiper
-Requires = docker.service mpd.service
+Requires = docker.service
 After = mpd.service docker.service
 
 [Service]

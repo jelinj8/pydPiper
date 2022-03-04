@@ -42,11 +42,17 @@ WIDGETS = {
 	'volumelarge': { 'type':'ttext', 'format':'{0}', 'variables':['volume'], 'font':'DejaVuSans50', 'just':'center', 'varwidth':True, 'size':(128,40) },
 	'volumebar': { 'type':'progressbar', 'value':'volume', 'rangeval':(0,100), 'size':(128,8) },
 
-        'title': { 'type':'ttext', 'format':'{0}', 'variables':['title'], 'font':'DejaVuSansTIT','varwidth':True,'effect':('scroll','left',2,1,100,'onstart',3,128), 'size':(128,30), 'just':'center'},
+	'title': { 'type':'ttext', 'format':'{0}', 'variables':['title'], 'font':'DejaVuSansTIT','varwidth':True,'effect':('scroll','left',2,1,100,'onstart',3,128), 'size':(128,30), 'just':'center'},
 	'artist': { 'type':'ttext', 'format':'{0}', 'variables':['artist'], 'font':'DejaVuSansART','varwidth':True,'effect':('scroll','left',2,1,100,'onstart',3,128), 'size':(128,16), 'just':'center'},
 
-	'elapsed': { 'type':'text', 'format':'{0}', 'variables':['elapsed|strftime+%-M:%S'], 'font':'small','size':(30,8), 'varwidth':True},
-	'length': { 'type':'text', 'format':'{0}', 'variables':['length|strftime+%-M:%S'], 'font':'small','size':(30,8),'just':'right','varwidth':True},
+	'elapsed1': { 'type':'text', 'format':'{0}', 'variables':['elapsed|strftime+%-M:%S'], 'font':'small','size':(30,8), 'varwidth':True},
+	'length1': { 'type':'text', 'format':'{0}', 'variables':['length|strftime+%-M:%S'], 'font':'small','size':(30,8),'just':'right','varwidth':True},
+	'elapsed2': { 'type':'text', 'format':'{0}', 'variables':['elapsed|strftime+%M:%S'], 'font':'small','size':(30,8), 'varwidth':True},
+	'length2': { 'type':'text', 'format':'{0}', 'variables':['length|strftime+%M:%S'], 'font':'small','size':(30,8),'just':'right','varwidth':True},
+	'elapsed3': { 'type':'text', 'format':'{0}', 'variables':['elapsed|strftime+%-H:%M:%S'], 'font':'small','size':(40,8), 'varwidth':True},
+	'length3': { 'type':'text', 'format':'{0}', 'variables':['length|strftime+%-H:%M:%S'], 'font':'small','size':(40,8),'just':'right','varwidth':True},
+
+
 	'stime': { 'type':'text', 'format':'{0}', 'variables':['utc|timezone+Europe/Prague|strftime+%H:%M'], 'font':'small', 'just':'right', 'varwidth':True, 'size':(60,16) },
 	'time': { 'type':'text', 'format':'{0}', 'variables':['utc|timezone+Europe/Prague|strftime+%H:%M'], 'font':'large', 'just':'center', 'varwidth':True, 'size':(128,16) },
 	'ttime': { 'type':'ttext', 'format':'{0}', 'variables':['utc|timezone+Europe/Prague|strftime+%H:%M'], 'font':'DejaVuSans45', 'just':'center', 'varwidth':True, 'size':(128,64) },
@@ -56,41 +62,102 @@ WIDGETS = {
 	'weather': { 'type':'text', 'format':'{0}', 'variables':['outside_conditions|capitalize'], 'font':'large','varwidth':True, 'effect':('scroll','left',1,1,20,'onloop',3,100)},
 
 	'splash': { 'type':'ttext', 'format':'MoOde', 'font':'DejaVuSans35', 'just':'center', 'varwidth':True, 'size':(128,64) },
+	'spotify': { 'type':'ttext', 'format':'Spotify', 'font':'DejaVuSans35', 'just':'center', 'varwidth':True, 'size':(128,64) },
+	'webradio': { 'type':'ttext', 'format':'webradio', 'font':'DejaVuSans35', 'just':'center', 'varwidth':True, 'size':(128,64) },
+	'player': { 'type':'ttext', 'format':'{0}', 'variables':['actPlayer'], 'font':'DejaVuSans35', 'just':'center', 'varwidth':True, 'size':(128,64) },
 }
 
 # Assemble the widgets into canvases.  Only needed if you need to combine multiple widgets together so you can produce effects on them as a group.
 CANVASES = {
-	'playing': { 'widgets': [ 
-            ('title',0,0), # was Y=10
-            ('artist',0,25), # was Y=26
-            #('tracktype',0,0),
-            
-            ('xofy',0,47),
-            ('elapsed',0,50),
-            ('length',97,50),
-            ('songprogress',0,62),
-            #('xofy',0,47),
-        ], 'size':(128,64) },
+	# -M:SS
+	'playing1': {
+		'widgets': [ 
+			('title',0,0),
+			('artist',0,25),
 
-        'stoptime': { 'widgets': [ 
-            #('ttime',0,10) 
-        ], 'size':(128,64) },
+			('xofy',0,47),
+			('elapsed1',0,50),
+			('length1',97,50),
+			('songprogress',0,62),
+		],
+		'size':(128,64) 
+	},
+	
+	# MM:SS
+	'playing2': {
+	'widgets': [
+			('title',0,0),
+			('artist',0,25),
 
-        'splashw': { 'widgets': [ 
-            ('splash',0,10) 
-        ], 'size':(128,64) },
+			('xofy',0,47),
+			('elapsed2',0,50),
+			('length2',97,50),
+			('songprogress',0,62),
+		],
+		'size':(128,64)
+	},
 
-	'stoptimetemp_popup': { 'widgets': [ 
-            ('ttime',3,0), 
-            ('tempsmall',100,0), 
-            ('weather',8,47), 
-            ('temphilow',100,48) 
-        ], 'size':(128,64) },
+	# -H:MM:SS
+	'playing3': {
+		'widgets': [
+			('title',0,0),
+			('artist',0,25),
 
-        'volume_changed': { 'widgets': [ 
-            ('volumelarge',0,0), 
-            ('volumebar',0,55) 
-        ], 'size':(128,64) }
+			('xofy',0,47),
+			('elapsed3',0,50),
+			('length3',87,50),
+			('songprogress',0,62),
+		],
+		'size':(128,64)
+	},
+
+	'stoptime': {
+		'widgets': [
+			#('ttime',0,10),
+			#('player',0,10),
+		],
+		'size':(128,64)
+	},
+
+	'splashw': {
+		'widgets': [
+			('splash',0,10),
+		],
+		'size':(128,64)
+	},
+
+	'spotifyw': {
+		'widgets': [
+			('spotify',0,10),
+		],
+		'size':(128,64)
+	},
+
+	'webradiow': {
+		'widgets': [
+			('webradio',0,10),
+		],
+		'size':(128,64)
+	},
+
+	'stoptimetemp_popup': {
+		'widgets': [
+			('ttime',3,0), 
+			('tempsmall',100,0), 
+			('weather',8,47), 
+			('temphilow',100,48) 
+		],
+		'size':(128,64)
+	},
+
+	'volume_changed': {
+		'widgets': [ 
+			('volumelarge',0,0),
+			('volumebar',0,55),
+		],
+		'size':(128,64)
+	}
+
 }
 
 # Place the canvases into sequences to display when their condition is met
@@ -105,44 +172,47 @@ SEQUENCES = [
 	{
 		'name': 'seqPlay',
 		'canvases': [
-			{ 
-                            'name':'playing',
-                            'duration':999,
-                            'conditional':'True'
-                        }
+			{ 'name':'playing1', 'duration':999, 'conditional':"db['length'] < 600"},
+			{ 'name':'playing2', 'duration':999, 'conditional':"db['length'] >= 600 and db['length'] < 3600"},
+			{ 'name':'playing3', 'duration':999, 'conditional':"db['length'] >= 3600"},
 		],
 		'conditional': "db['state']=='play'"
 	},
-        {
-                'name': 'seqStop',
-                'canvases': [
-                        { 
-                            'name':'stoptime',
-                            'duration':9999,
-                        }
-                ],
-                'conditional': "db['state']=='stop' or db['state']=='pause'"
-        },
+
+	{
+		'name': 'seqStop',
+		'canvases': [
+			{'name':'stoptime', 'duration':9999, },
+			#{'name':'stoptime', 'duration':9999, 'conditional':"db['actPlayer'] == 'MPD'"},
+			#{'name':'spotifyw', 'duration':9999, 'conditional':"db['actPlayer'] == 'Spotify'"},
+			#{'name':'webradiow', 'duration':9999, 'conditional':"db['actPlayer'] == 'Webradio'"},
+		],
+		'conditional': "db['state']=='stop' or db['state']=='pause'"
+		#'conditional': "False"
+	},
 	{
 		'name':'seqVolume',
 		'coordinates':(0,0),
-		'canvases': [ {
-                    'name':'volume_changed',
-                    'duration':1 
-                    }
-                ],
+		'canvases': [
+			{'name':'volume_changed', 'duration':1},
+		],
 		'conditional': "db['volume'] != dbp['volume']",
+		'minimum':3,
+	},
+	{
+		'name':'seqPlayer',
+		'coordinates':(0,0),
+		'canvases': [
+			{'name':'player', 'duration':1},
+		],
+		'conditional': "db['actPlayer'] != dbp['actPlayer']",
 		'minimum':3,
 	},
 	{
 		'name': 'seqSplash',
 		'canvases': [
-			{ 
-                            'name':'splashw',
-                            'duration':999,
-                            'conditional':'True' }
+			{'name':'splashw', 'duration':999, 'conditional':'True' },
 		],
 		'conditional': "db['state']=='starting'"
 	},
-
 ]

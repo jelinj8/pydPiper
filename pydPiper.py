@@ -632,7 +632,8 @@ if __name__ == u'__main__':
     enable = pydPiper_config.DISPLAY_ENABLE_DURATION
     driver = pydPiper_config.DISPLAY_DRIVER
     pagefile = pydPiper_config.PAGEFILE
-    services_list.append(pydPiper_config.MUSIC_SERVICE)
+    for svc in pydPiper_config.MUSIC_SERVICE.split(";"):
+    	services_list.append(svc)
 
 
     for opt, arg in opts:
