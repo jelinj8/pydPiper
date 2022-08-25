@@ -62,6 +62,7 @@ class luma_i2c():
 			self.device = ssd1331(serial)
 		else:
 			raise ValueError('{0} not a recognized luma device type'.format(devicetype))
+                self.device.contrast(0)
 
 	def clear(self):
 		with canvas(self.device) as draw:
