@@ -44,6 +44,7 @@ WIDGETS = {
 
 	'title': { 'type':'ttext', 'format':'{0}', 'variables':['title'], 'font':'DejaVuSansTIT','varwidth':True,'effect':('scroll','left',2,1,100,'onstart',3,128), 'size':(128,30), 'just':'center'},
 	'artist': { 'type':'ttext', 'format':'{0}', 'variables':['artist'], 'font':'DejaVuSansART','varwidth':True,'effect':('scroll','left',2,1,100,'onstart',3,128), 'size':(128,16), 'just':'center'},
+        'album': { 'type':'ttext', 'format':'{0}', 'variables':['album'], 'font':'DejaVuSansART','varwidth':True,'effect':('scroll','left',2,1,100,'constart',3,128), 'size':(128,16), 'just':'center'},
 
 	'elapsed1': { 'type':'text', 'format':'{0}', 'variables':['elapsed|strftime+%-M:%S'], 'font':'small','size':(30,8), 'varwidth':True},
 	'length1': { 'type':'text', 'format':'{0}', 'variables':['length|strftime+%-M:%S'], 'font':'small','size':(30,8),'just':'right','varwidth':True},
@@ -73,7 +74,8 @@ CANVASES = {
 	'playing1': {
 		'widgets': [ 
 			('title',0,0),
-			('artist',0,25),
+#			('artist',0,25),
+                        ('album',0,25),
 
 			('xofy',0,47),
 			('elapsed1',0,50),
@@ -87,7 +89,8 @@ CANVASES = {
 	'playing2': {
 	'widgets': [
 			('title',0,0),
-			('artist',0,25),
+#			('artist',0,25),
+                        ('album',0,25),
 
 			('xofy',0,47),
 			('elapsed2',0,50),
@@ -101,7 +104,8 @@ CANVASES = {
 	'playing3': {
 		'widgets': [
 			('title',0,0),
-			('artist',0,25),
+#			('artist',0,25),
+                        ('album',0,25),
 
 			('xofy',0,47),
 			('elapsed3',0,50),
