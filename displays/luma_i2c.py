@@ -21,6 +21,7 @@ from luma.core.interface.serial import i2c
 from luma.core.render import canvas
 from luma.oled.device import sh1106
 from luma.oled.device import ssd1306
+from luma.oled.device import ssd1309
 from luma.oled.device import ssd1322
 from luma.oled.device import ssd1325
 from luma.oled.device import ssd1331
@@ -51,6 +52,8 @@ class luma_i2c():
 		serial = i2c(port=i2c_port, address=i2c_address)
 
 		if devicetype.lower() == u'ssd1306':
+			self.device = ssd1306(serial)
+		if devicetype.lower() == u'ssd1309':
 			self.device = ssd1306(serial)
 		elif devicetype.lower() == u'sh1106':
 			self.device = sh1106(serial)
