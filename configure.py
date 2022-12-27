@@ -50,7 +50,7 @@ if __name__ == u'__main__':
                             ],
                         '^luma_i2c$':
                             [
-                                { 'prompt': 'Type of Display?', 'variable': 'DISPLAY_DEVICETYPE', 'allowed': ['ssd1306', 'sh1106', 'ssd1322', 'ssd1325', 'ssd1331'], 'default': 'ssd1306', 'help': 'What is the display device type' },
+                                { 'prompt': 'Type of Display?', 'variable': 'DISPLAY_DEVICETYPE', 'allowed': ['ssd1306', 'ssd1309', 'sh1106', 'ssd1322', 'ssd1325', 'ssd1331'], 'default': 'ssd1306', 'help': 'What is the display device type' },
                                 { 'prompt': 'Width of display (in pixels)?', 'variable': 'DISPLAY_WIDTH', 'default': '128', 'help': 'What is the horizontal resolution of the display in pixels' },
                                 { 'prompt': 'Height of display (in pixels)?', 'variable': 'DISPLAY_HEIGHT', 'default': '64', 'help': 'What is the vertical resolution of the display in pixels' },
                             ],
